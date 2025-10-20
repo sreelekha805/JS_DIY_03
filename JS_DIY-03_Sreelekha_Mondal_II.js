@@ -2,7 +2,7 @@
 document.getElementById("fruit_heading").innerHTML = "The list of the FRUITS";
 
 // Creating the array.
-const fruit = ["apple", "banana", "grapes", "orange", "Mango", "pineapple", "Maqui"];
+const fruit = ["apple", "banana", "grapes", "Mango", "orange"];
 
 // Accessing the element, by the id 'array' .S
 const list = document.getElementById("array");
