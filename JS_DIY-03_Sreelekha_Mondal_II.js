@@ -1,6 +1,3 @@
-// Changing the content of an html element by using its its id.
-document.getElementById("fruit_heading").innerHTML = "The list of the FRUITS";
-
 // Creating the array.
 const fruit = ["apple", "banana", "grapes", "Mango", "orange"];
 
@@ -21,44 +18,86 @@ fruit.forEach(function (eachFruit)
   list.appendChild(para);
 })
 
-// Changing the content of an html element by using its its id.
-document.getElementById("fruit_heading2").innerHTML = "After Deleting the Last Fruit, the array is: ";
-
 // To delete the last fruit element of the array, the pop() method is used.
 fruit.pop();
 
 // Displaying the updated array.
 document.getElementById("fruit_del").innerHTML = fruit;
 
-// Changing the content of an html element by using its its id.
-document.getElementById("fruit_heading3").innerHTML = "After Adding a Fruit, the array is: ";
-
 // To add a new fruit element in the array, the push() method is sued.
-fruit.push("kiwi");
+fruit.push("Melon");
 
 // Displaying the updated array.
 document.getElementById("fruit_add").innerHTML = fruit;
 
-// Changing the content of an html element by using its its id.
-document.getElementById("fruit_heading4").innerHTML = "Fruit names in Uppercase: ";
+// Calling the function to convert all the elements of the array into uppercase.
+myUppercase();
 
-// Converting the array elements in a string.
-let fruitString = fruit.toString();
+// The function to convert all the elements of the array into uppercase individually.
+function myUppercase ()
+{
 
-// Now converting the string in uppercase.
-let fruitUppercase = fruitString.toUpperCase();
+  // storing the length of the array in a variable.
+  let length = fruit.length;
 
-// Displaying the string.
-document.getElementById("fruit_upper").innerHTML = fruitUppercase;
+  // Initialized the loop counter, to control the loop.
+  let j = 0;
 
-// Store the character in a variable.
-const char = "M";
+  // When the length of the array will be greater than the loop counter, the loop will be executed.
+  while (j < length)  
+  {
 
-// Now finding the element starts with 'M' in the array.
-const findFruit = fruit.find(element => element.startsWith(char));
+    /*
+      Converting each element to the uppercase by its index number and then stored it in a variable. Because if we only convert the elements and then want to display the "fruit[j]", it will give the previous output of the element.
+    */
+    let uppercaseElement = fruit[j].toUpperCase();
 
-// Changing the content of an html element by using its its id.
-document.getElementById("fruit_heading5").innerHTML = "Fruit names Starting with M: ";
+    // Accessing an html element with its id to treat it as a parent element.
+    let uppercaseParent = document.getElementById("fruit_upper");
 
-// Displaying the element.
-document.getElementById("fruit_sort").innerHTML = findFruit;
+    // creating elements dynamically to display the array elements individually.
+    let uppercaseChild = document.createElement("p");
+
+    // To display the elements.
+    uppercaseChild.innerHTML = uppercaseElement;
+    uppercaseParent.appendChild(uppercaseChild);
+
+    // Updating the loop counter.
+    j = (j + 1);
+  }
+}
+
+// Calling the function to find element starts with 'M' from all the elements of the array.
+myFind();
+
+// This function is written to search the element with first letter 'M'.
+function myFind ()
+{
+  // storing the length of the array in a variable.
+  let length = fruit.length;
+
+  // Initialized the loop counter, to control the loop.
+  let i = 0;
+  while (i < length) 
+  {
+    // When the element will start with 'M' this if will be executed. To store that element.
+    if (fruit[i].startsWith('M'))
+    {
+      // Accessing an html element with its id to treat it as a parent element.
+      let withMparent = document.getElementById("fruit_sort");
+
+      // Create an element to store the element.
+      let displayM = document.createElement("p");
+
+      // Changing the content, adding the array element starts with 'M' to the html element. 
+      displayM.innerHTML = fruit[i];
+      withMparent.appendChild(displayM);
+    }
+
+    // Updating the loop counter.
+    i = (i + 1);
+  }
+}
+
+
+
