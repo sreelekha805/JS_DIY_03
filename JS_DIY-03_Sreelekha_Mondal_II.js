@@ -1,22 +1,30 @@
 // Creating the array.
 const fruit = ["apple", "banana", "grapes", "Mango", "orange"];
 
-// Accessing the element, by the id 'array' .S
-const list = document.getElementById("array");
+dispEachFruit();
 
-// To display each element individually, the forEach method is used.
-fruit.forEach(function (eachFruit)
+// To display each element individually, the forEach method is implemented.
+function dispEachFruit ()
 {
+  let size = fruit.length;
+  let m = 0;
+  while (m < size)
+  {
+    // Accessing the element, by the id 'array' .
+    const list = document.getElementById("array");
 
-  // For each array element, different <p> element is created dynamically.
-  const para = document.createElement("p");
+    // For each array element, different <p> element is created dynamically.
+    const para = document.createElement("p");
 
-  // Placing the single elements in every paragraph tag.
-  para.innerHTML = eachFruit;
+    // Placing the single elements in every paragraph tag.
+    para.innerHTML = fruit[m];
 
-  // This <p> elements are the child element of a html element which is accessed by the variable 'list'.
-  list.appendChild(para);
-})
+    // This <p> elements are the child element of a html element which is accessed by the variable 'list'.
+    list.appendChild(para);
+
+    m = (m + 1);
+  }
+}
 
 // To delete the last fruit element of the array, the pop() method is used.
 fruit.pop();
@@ -80,8 +88,12 @@ function myFind ()
   let i = 0;
   while (i < length) 
   {
+
+    // Storing the element in a variable.
+    let str = fruit[i];
+
     // When the element will start with 'M' this if will be executed. To store that element.
-    if (fruit[i].startsWith('M'))
+    if (str[0] === 'M')
     {
       // Accessing an html element with its id to treat it as a parent element.
       let withMparent = document.getElementById("fruit_sort");
