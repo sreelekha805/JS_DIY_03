@@ -3,7 +3,7 @@ const fruit = ["apple", "banana", "grapes", "Mango", "orange"];
 
 dispEachFruit();
 
-// To display each element individually, the forEach method is implemented.
+// To display each element individually, the forEach method is used.
 function dispEachFruit ()
 {
   let size = fruit.length;
@@ -55,10 +55,39 @@ function myUppercase ()
   while (j < length)  
   {
 
-    /*
-      Converting each element to the uppercase by its index number and then stored it in a variable. Because if we only convert the elements and then want to display the "fruit[j]", it will give the previous output of the element.
-    */
-    let uppercaseElement = fruit[j].toUpperCase();
+    // Take the elements one by one in a variable
+    let element = fruit[j];
+
+    // Take the size of one element.
+    let elementSize = element.length;
+
+    // Taking another variable to store the uppercased element.
+    let uppercaseElement = '';
+
+    // Initialized the loop counter to change all the charater of the element into upper case.
+    let k = 0;
+    while (k < elementSize)
+    {
+
+      // Taking the characters one by one of an element in a variable.
+      let eachChar = element[k];
+
+      // Chacking the character is in lowercase or not.
+      if (eachChar >= '97')
+      {
+        if (eachChar <= '122')
+        {
+          // Converting the character into uppercase.
+          eachChar = (eachChar - 32);
+        }
+      }
+    
+      // Creating the new uppercased element.
+      uppercaseElement = (uppercaseElement + eachChar);
+
+      // updating the loop counter.
+      k = (k + 1);
+    }
 
     // Accessing an html element with its id to treat it as a parent element.
     let uppercaseParent = document.getElementById("fruit_upper");
@@ -89,7 +118,6 @@ function myFind ()
   while (i < length) 
   {
 
-    // Storing the element in a variable.
     let str = fruit[i];
 
     // When the element will start with 'M' this if will be executed. To store that element.
