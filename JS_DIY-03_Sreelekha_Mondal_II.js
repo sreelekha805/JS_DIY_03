@@ -28,15 +28,57 @@ function dispEachFruit ()
 
 // To delete the last fruit element of the array, the pop() method is used.
 fruit.pop();
+dispAftrPop ();
 
-// Displaying the updated array.
-document.getElementById("fruit_del").innerHTML = fruit;
+// To display each element individually after deleting the last element, the function is written.
+function dispAftrPop ()
+{
+  let size = fruit.length;
+  let m = 0;
+  while (m < size)
+  {
+    // Accessing the html element, by the id.
+    const list = document.getElementById("fruit_del");
+
+    // For each array element, different <p> element is created dynamically.
+    const para = document.createElement("p");
+
+    // Placing the single elements in every paragraph tag.
+    para.innerHTML = fruit[m];
+
+    // This <p> elements are the child element of a html element which is accessed by the variable 'list'.
+    list.appendChild(para);
+
+    m = (m + 1);
+  }
+}
 
 // To add a new fruit element in the array, the push() method is sued.
 fruit.push("Melon");
+dispAftrPush ();
 
-// Displaying the updated array.
-document.getElementById("fruit_add").innerHTML = fruit;
+// To display each element individually after adding an element at the last, the function is written.
+function dispAftrPush ()
+{
+  let size = fruit.length;
+  let m = 0;
+  while (m < size)
+  {
+    // Accessing the html element, by the id.
+    const list = document.getElementById("fruit_add");
+
+    // For each array element, different <p> element is created dynamically.
+    const para = document.createElement("p");
+
+    // Placing the single elements in every paragraph tag.
+    para.innerHTML = fruit[m];
+
+    // This <p> elements are the child element of a html element which is accessed by the variable 'list'.
+    list.appendChild(para);
+
+    m = (m + 1);
+  }
+}
 
 // Calling the function to convert all the elements of the array into uppercase.
 myUppercase();
@@ -73,9 +115,9 @@ function myUppercase ()
       let eachChar = element[k];
 
       // Chacking the character is in lowercase or not.
-      if (eachChar >= '97')
+      if (eachChar >= 97)
       {
-        if (eachChar <= '122')
+        if (eachChar <= 122)
         {
           // Converting the character into uppercase.
           eachChar = (eachChar - 32);
