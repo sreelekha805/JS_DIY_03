@@ -1,23 +1,19 @@
 // Creating the array.
 const fruit = ["apple", "banana", "grapes", "Mango", "orange"];
 
-dispEachFruit();
-
 // To display each element individually, the forEach method is used.
-function dispEachFruit ()
+function dispEachFruit (list, arr)
 {
-  let size = fruit.length;
+  let size = arr.length;
   let m = 0;
   while (m < size)
   {
-    // Accessing the element, by the id 'array' .
-    const list = document.getElementById("array");
 
     // For each array element, different <p> element is created dynamically.
     const para = document.createElement("p");
 
     // Placing the single elements in every paragraph tag.
-    para.innerHTML = fruit[m];
+    para.innerHTML = arr[m];
 
     // This <p> elements are the child element of a html element which is accessed by the variable 'list'.
     list.appendChild(para);
@@ -25,60 +21,19 @@ function dispEachFruit ()
     m = (m + 1);
   }
 }
+
+let parentElement = document.getElementById("array");
+dispEachFruit (parentElement, fruit);
 
 // To delete the last fruit element of the array, the pop() method is used.
 fruit.pop();
-dispAftrPop ();
-
-// To display each element individually after deleting the last element, the function is written.
-function dispAftrPop ()
-{
-  let size = fruit.length;
-  let m = 0;
-  while (m < size)
-  {
-    // Accessing the html element, by the id.
-    const list = document.getElementById("fruit_del");
-
-    // For each array element, different <p> element is created dynamically.
-    const para = document.createElement("p");
-
-    // Placing the single elements in every paragraph tag.
-    para.innerHTML = fruit[m];
-
-    // This <p> elements are the child element of a html element which is accessed by the variable 'list'.
-    list.appendChild(para);
-
-    m = (m + 1);
-  }
-}
+let afterPop = document.getElementById("fruit_del");
+dispEachFruit (afterPop, fruit);
 
 // To add a new fruit element in the array, the push() method is sued.
 fruit.push("Melon");
-dispAftrPush ();
-
-// To display each element individually after adding an element at the last, the function is written.
-function dispAftrPush ()
-{
-  let size = fruit.length;
-  let m = 0;
-  while (m < size)
-  {
-    // Accessing the html element, by the id.
-    const list = document.getElementById("fruit_add");
-
-    // For each array element, different <p> element is created dynamically.
-    const para = document.createElement("p");
-
-    // Placing the single elements in every paragraph tag.
-    para.innerHTML = fruit[m];
-
-    // This <p> elements are the child element of a html element which is accessed by the variable 'list'.
-    list.appendChild(para);
-
-    m = (m + 1);
-  }
-}
+let afterPush = document.getElementById("fruit_add");
+dispEachFruit (afterPush, fruit);
 
 // Calling the function to convert all the elements of the array into uppercase.
 myUppercase();
@@ -146,40 +101,55 @@ function myUppercase ()
   }
 }
 
-// Calling the function to find element starts with 'M' from all the elements of the array.
-myFind();
 
-// This function is written to search the element with first letter 'M'.
-function myFind ()
+
+//The comparison of the strings 0th index with the given character will be performed in this function.
+function myFind (element, char, state)
 {
-  // storing the length of the array in a variable.
-  let length = fruit.length;
-
-  // Initialized the loop counter, to control the loop.
-  let i = 0;
-  while (i < length) 
+  if (element[0] === char)
   {
+    state = 1;  
+  }
 
-    let str = fruit[i];
-
-    // When the element will start with 'M' this if will be executed. To store that element.
-    if (str[0] === 'M')
-    {
-      // Accessing an html element with its id to treat it as a parent element.
-      let withMparent = document.getElementById("fruit_sort");
-
-      // Create an element to store the element.
-      let displayM = document.createElement("p");
-
-      // Changing the content, adding the array element starts with 'M' to the html element. 
-      displayM.innerHTML = fruit[i];
-      withMparent.appendChild(displayM);
-    }
-
-    // Updating the loop counter.
-    i = (i + 1);
+  else
+  {
+    state = 0;
   }
 }
 
+//This function will get all the elements of the array fruit and then it will call the myFind function to compare the values.
+function filterArrayElementByTheGivenCharacter (arr, char)
+{
 
+  //calculating the size of the array.
+  let length = arr.length;
 
+  //Creating a new array to store the elements according to the criteria.
+  let newArr = [];
+
+  let i = 0;
+  let j = 0;
+  while (i < length) 
+  {
+
+    //Accessing the each element of the main array.
+    let str = fruit[i];
+
+    // Calling the function to check if the first character of the string is same as the given character.
+    myFind (str, char, status);
+    if (status === 1)
+    {
+      newArr[j] = str;
+      j = (j + 1);
+    }
+
+    i = (i + 1);
+  }
+
+  // To display each of the element of the new element, this part will be executed.
+  let neArrElement = document.getElementById("fruit_sort");
+  dispEachFruit (newArrElement, newArr);
+}
+
+//Call the function to check if there exists an element with the starting letter 'M'.
+filterArrayElementByTheGivenCharacter (fruit, "M");
