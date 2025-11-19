@@ -35,85 +35,78 @@ fruit.push("Melon");
 let afterPush = document.getElementById("fruit_add");
 dispEachFruit (afterPush, fruit);
 
-// Calling the function to convert all the elements of the array into uppercase.
-myUppercase();
 
-// The function to convert all the elements of the array into uppercase individually.
-function myUppercase ()
+//This function is created to change the each character into uppercase of a string.
+function upperString (string)
 {
+  let length = string.length;
 
-  // storing the length of the array in a variable.
-  let length = fruit.length;
+  //Creating a new array to store the elements according to the criteria.
+  let newArr = [];
 
-  // Initialized the loop counter, to control the loop.
-  let j = 0;
-
-  // When the length of the array will be greater than the loop counter, the loop will be executed.
-  while (j < length)  
+  // initialize the loop counter.
+  let i = 0;
+  while (i < length)
   {
-
-    // Take the elements one by one in a variable
-    let element = fruit[j];
-
-    // Take the size of one element.
-    let elementSize = element.length;
-
-    // Taking another variable to store the uppercased element.
-    let uppercaseElement = '';
-
-    // Initialized the loop counter to change all the charater of the element into upper case.
-    let k = 0;
-    while (k < elementSize)
+    // Checking if the character is in lowercase or not. If it is true, then the character will be stored in a array.
+    if (string[i] >= '97')
     {
-
-      // Taking the characters one by one of an element in a variable.
-      let eachChar = element[k];
-
-      // Chacking the character is in lowercase or not.
-      if (eachChar >= 97)
+      if (string[i] <= '122')
       {
-        if (eachChar <= 122)
-        {
-          // Converting the character into uppercase.
-          eachChar = (eachChar - 32);
-        }
+        newArr[i] = (string[i] - '32');
       }
-    
-      // Creating the new uppercased element.
-      uppercaseElement = (uppercaseElement + eachChar);
-
-      // updating the loop counter.
-      k = (k + 1);
     }
 
-    // Accessing an html element with its id to treat it as a parent element.
-    let uppercaseParent = document.getElementById("fruit_upper");
-
-    // creating elements dynamically to display the array elements individually.
-    let uppercaseChild = document.createElement("p");
-
-    // To display the elements.
-    uppercaseChild.innerHTML = uppercaseElement;
-    uppercaseParent.appendChild(uppercaseChild);
-
-    // Updating the loop counter.
-    j = (j + 1);
+    i = (i + 1);
   }
+
+  console.log(newArr);
+
+  //returning the array.
+  return newArr;
 }
 
 
+// This function will collect each element and then it will convert the elements into uppercase.
+function myUppercase (arr)
+{
+
+  //calculating the size of the array.
+  let length = arr.length;
+
+  //Creating a new array to store the elements according to the criteria.
+  let upperArr;
+
+  let i = 0;
+  while (i < length) 
+  {
+
+    //Accessing the each element of the main array.
+    let str = arr[i];
+    upperArr = upperString (str);
+    i = (i + 1);
+  }
+
+  // To display each of the element of the new element, this part will be executed.
+  let upperElement = document.getElementById("fruit_upper");
+  dispEachFruit (upperElement, upperArr);
+}
+
+
+//calling the function to convert all the elements of the fruit array into uppercase.
+myUppercase (fruit);
 
 //The comparison of the strings 0th index with the given character will be performed in this function.
-function myFind (element, char, state)
+function myFind (element, char)
 {
   if (element[0] === char)
   {
-    state = 1;  
+    return 1;  
   }
 
   else
   {
-    state = 0;
+    return 0;
   }
 }
 
@@ -133,11 +126,11 @@ function filterArrayElementByTheGivenCharacter (arr, char)
   {
 
     //Accessing the each element of the main array.
-    let str = fruit[i];
+    let str = arr[i];
 
     // Calling the function to check if the first character of the string is same as the given character.
-    myFind (str, char, status);
-    if (status === 1)
+    let check = myFind (str, char);
+    if (check === 1)
     {
       newArr[j] = str;
       j = (j + 1);
@@ -147,7 +140,7 @@ function filterArrayElementByTheGivenCharacter (arr, char)
   }
 
   // To display each of the element of the new element, this part will be executed.
-  let neArrElement = document.getElementById("fruit_sort");
+  let newArrElement = document.getElementById("fruit_sort");
   dispEachFruit (newArrElement, newArr);
 }
 
