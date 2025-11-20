@@ -42,7 +42,7 @@ function upperString (string)
   let length = string.length;
 
   //Creating a new array to store the elements according to the criteria.
-  let newArr = [];
+  let newStr = "";
 
   // initialize the loop counter.
   let i = 0;
@@ -53,14 +53,15 @@ function upperString (string)
     {
       if (string[i] <= '122')
       {
-        newArr[i] = (string[i] - '32');
+        let char = (string[i] - '32');
+        newStr = (newStr + char);
       }
     }
 
     i = (i + 1);
   }
 
-  console.log(newArr);
+  console.log(newStr);
 
   //returning the array.
   return newArr;
@@ -75,7 +76,8 @@ function myUppercase (arr)
   let length = arr.length;
 
   //Creating a new array to store the elements according to the criteria.
-  let upperArr;
+  let upper = "";
+  let uprArr = [];
 
   let i = 0;
   while (i < length) 
@@ -83,13 +85,22 @@ function myUppercase (arr)
 
     //Accessing the each element of the main array.
     let str = arr[i];
-    upperArr = upperString (str);
-    i = (i + 1);
-  }
+    console.log(str);
 
-  // To display each of the element of the new element, this part will be executed.
-  let upperElement = document.getElementById("fruit_upper");
-  dispEachFruit (upperElement, upperArr);
+    if (str === "")
+    {
+      uprArr[i] = upper;
+      i = (i + 1);
+    }
+
+    else
+    {
+      upper = upperString (str);
+      uprArr[i] = upper;
+      console.log(uprArr);
+      i = (i + 1);
+    }
+  }
 }
 
 
