@@ -48,20 +48,169 @@ function upperString (string)
   let i = 0;
   while (i < length)
   {
-    // Checking if the character is in lowercase or not. If it is true, then the character will be stored in a array.
-    if (string[i] >= '97')
-    {
-      if (string[i] <= '122')
-      {
-        let char = (string[i] - '32');
-        newStr = (newStr + char);
-      }
-    }
+    let char = string[i];
 
+    // converting each character to its upper case.
+    switch (char)
+    {
+      case 'a': newStr = (newStr + "A");       
+                break;
+
+      case 'b': newStr = (newStr + "B");       
+                break;
+
+      case 'c': newStr = (newStr + "C");       
+                break;
+
+      case 'd': newStr = (newStr + "D");       
+                break;
+
+      case 'e': newStr = (newStr + "E");       
+                break;
+
+      case 'f': newStr = (newStr + "F");       
+                break;
+ 
+      case 'g': newStr = (newStr + "G");       
+                break;
+
+      case 'h': newStr = (newStr + "H");       
+                break;
+
+      case 'i': newStr = (newStr + "I");       
+                break;
+
+      case 'j': newStr = (newStr + "J");       
+                break;
+
+      case 'k': newStr = (newStr + "K");       
+                break;
+
+      case 'l': newStr = (newStr + "L");       
+                break;
+
+      case 'm': newStr = (newStr + "M");       
+                break;
+
+      case 'n': newStr = (newStr + "N");       
+                break;
+
+      case 'o': newStr = (newStr + "O");       
+                break;
+
+      case 'p': newStr = (newStr + "P");       
+                break;
+
+      case 'q': newStr = (newStr + "Q");       
+                break;
+
+      case 'r': newStr = (newStr + "R");       
+                break;
+
+      case 's': newStr = (newStr + "S");       
+                break;
+
+      case 't': newStr = (newStr + "T");       
+                break;
+
+      case 'u': newStr = (newStr + "U");       
+                break;
+
+      case 'v': newStr = (newStr + "V");       
+                break;
+
+      case 'w': newStr = (newStr + "W");       
+                break;
+
+      case 'x': newStr = (newStr + "X");       
+                break;
+
+      case 'y': newStr = (newStr + "Y");       
+                break;
+
+      case 'z': newStr = (newStr + "Z");       
+                break;
+
+      case 'A': newStr = (newStr + "A");       
+                break;
+
+      case 'B': newStr = (newStr + "B");       
+                break;
+
+      case 'C': newStr = (newStr + "C");       
+                break;
+
+      case 'D': newStr = (newStr + "D");       
+                break;
+
+      case 'E': newStr = (newStr + "E");       
+                break;
+
+      case 'F': newStr = (newStr + "F");       
+                break;
+ 
+      case 'G': newStr = (newStr + "G");       
+                break;
+
+      case 'H': newStr = (newStr + "H");       
+                break;
+
+      case 'I': newStr = (newStr + "I");       
+                break;
+
+      case 'J': newStr = (newStr + "J");       
+                break;
+
+      case 'K': newStr = (newStr + "K");       
+                break;
+
+      case 'L': newStr = (newStr + "L");       
+                break;
+
+      case 'M': newStr = (newStr + "M");       
+                break;
+
+      case 'N': newStr = (newStr + "N");       
+                break;
+
+      case 'O': newStr = (newStr + "O");       
+                break;
+
+      case 'P': newStr = (newStr + "P");       
+                break;
+
+      case 'Q': newStr = (newStr + "Q");       
+                break;
+
+      case 'R': newStr = (newStr + "R");       
+                break;
+
+      case 'S': newStr = (newStr + "S");       
+                break;
+
+      case 'T': newStr = (newStr + "T");       
+                break;
+
+      case 'U': newStr = (newStr + "U");       
+                break;
+
+      case 'V': newStr = (newStr + "V");       
+                break;
+
+      case 'W': newStr = (newStr + "W");       
+                break;
+
+      case 'X': newStr = (newStr + "X");       
+                break;
+
+      case 'Y': newStr = (newStr + "Y");       
+                break;
+
+      case 'Z': newStr = (newStr + "Z");       
+                break;
+    }
     i = (i + 1);
   }
-
-  console.log(newStr);
 
   //returning the array.
   return newStr;
@@ -85,8 +234,8 @@ function myUppercase (arr)
 
     //Accessing the each element of the main array.
     let str = arr[i];
-    console.log(str);
 
+    // if the string is empty, then check for the next string, if it is not, then call the upperString function.
     if (str === "")
     {
       uprArr[i] = upper;
@@ -97,10 +246,13 @@ function myUppercase (arr)
     {
       upper = upperString (str);
       uprArr[i] = upper;
-      console.log(uprArr);
       i = (i + 1);
     }
   }
+
+  // To display each of the element of the new element, this part will be executed.
+  let uprArrElement = document.getElementById("fruit_upper");
+  dispEachFruit (uprArrElement, uprArr);
 }
 
 
