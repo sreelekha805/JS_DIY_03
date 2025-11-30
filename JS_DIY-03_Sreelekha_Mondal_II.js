@@ -131,84 +131,9 @@ function upperString (string)
       case 'z': newStr = (newStr + "Z");       
                 break;
 
-      case 'A': newStr = (newStr + "A");       
-                break;
-
-      case 'B': newStr = (newStr + "B");       
-                break;
-
-      case 'C': newStr = (newStr + "C");       
-                break;
-
-      case 'D': newStr = (newStr + "D");       
-                break;
-
-      case 'E': newStr = (newStr + "E");       
-                break;
-
-      case 'F': newStr = (newStr + "F");       
-                break;
- 
-      case 'G': newStr = (newStr + "G");       
-                break;
-
-      case 'H': newStr = (newStr + "H");       
-                break;
-
-      case 'I': newStr = (newStr + "I");       
-                break;
-
-      case 'J': newStr = (newStr + "J");       
-                break;
-
-      case 'K': newStr = (newStr + "K");       
-                break;
-
-      case 'L': newStr = (newStr + "L");       
-                break;
-
-      case 'M': newStr = (newStr + "M");       
-                break;
-
-      case 'N': newStr = (newStr + "N");       
-                break;
-
-      case 'O': newStr = (newStr + "O");       
-                break;
-
-      case 'P': newStr = (newStr + "P");       
-                break;
-
-      case 'Q': newStr = (newStr + "Q");       
-                break;
-
-      case 'R': newStr = (newStr + "R");       
-                break;
-
-      case 'S': newStr = (newStr + "S");       
-                break;
-
-      case 'T': newStr = (newStr + "T");       
-                break;
-
-      case 'U': newStr = (newStr + "U");       
-                break;
-
-      case 'V': newStr = (newStr + "V");       
-                break;
-
-      case 'W': newStr = (newStr + "W");       
-                break;
-
-      case 'X': newStr = (newStr + "X");       
-                break;
-
-      case 'Y': newStr = (newStr + "Y");       
-                break;
-
-      case 'Z': newStr = (newStr + "Z");       
-                break;
+      default : newStr = (newStr + char);
     }
+
     i = (i + 1);
   }
 
