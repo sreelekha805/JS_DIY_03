@@ -1,5 +1,5 @@
 // Creating the array.
-const fruit = ["apple", "banana", " ", "orange", " "];
+const fruit = ["", "apple", "banana", "grapes", "Mango", "orange"];
 
 // To display each element individually, the forEach method is used.
 function dispEachFruit (list, arr)
@@ -161,7 +161,7 @@ function myUppercase (arr)
     let str = arr[i];
 
     // if the string is not empty, then call the upperString function, if it is not take the control after the if statement.
-    if (str != "")
+    if (str != null)
     {
       upper = upperString (str);
       uprArr[i] = upper;
