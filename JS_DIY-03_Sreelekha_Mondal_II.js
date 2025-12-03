@@ -161,7 +161,7 @@ function myUppercase (arr)
     let str = arr[i];
 
     // if the string is not empty, then call the upperString function, if it is not take the control after the if statement.
-    if (str != null)
+    if (str != "")
     {
       upper = upperString (str);
       uprArr[i] = upper;
@@ -211,11 +211,13 @@ function filterArrayElementByTheGivenCharacter (arr, char)
     //Accessing the each element of the main array.
     let str = arr[i];
 
-    if (str != null)
+    if (str != "")
     {
-
+      console.log(str);
       // Calling the function to check if the first character of the string is same as the given character.
       let check = myFind (str, char);
+
+      console.log (check);
       if (check === 1)
       {
         newArr[j] = str;
