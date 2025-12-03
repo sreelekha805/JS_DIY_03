@@ -211,12 +211,16 @@ function filterArrayElementByTheGivenCharacter (arr, char)
     //Accessing the each element of the main array.
     let str = arr[i];
 
-    // Calling the function to check if the first character of the string is same as the given character.
-    let check = myFind (str, char);
-    if (check === 1)
+    if (str != null)
     {
-      newArr[j] = str;
-      j = (j + 1);
+
+      // Calling the function to check if the first character of the string is same as the given character.
+      let check = myFind (str, char);
+      if (check === 1)
+      {
+        newArr[j] = str;
+        j = (j + 1);
+      }
     }
 
     i = (i + 1);
