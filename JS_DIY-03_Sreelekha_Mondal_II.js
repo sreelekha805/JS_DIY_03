@@ -159,10 +159,12 @@ function myUppercase (arr)
 
     //Accessing the each element of the main array.
     let str = arr[i];
+    console.log (str);
 
     // if the string is not empty, then call the upperString function, if it is not take the control after the if statement.
     if (str != "")
     {
+      console.log (str);
       upper = upperString (str);
       uprArr[i] = upper;
     }
@@ -175,21 +177,30 @@ function myUppercase (arr)
   dispEachFruit (uprArrElement, uprArr);
 }
 
-
 //calling the function to convert all the elements of the fruit array into uppercase.
 myUppercase (fruit);
 
 //The comparison of the strings 0th index with the given character will be performed in this function.
 function myFind (element, char)
 {
-  if (element[0] === char)
+  // If the element is not a empty string then the if statement will be executed otherwise it will return -1.
+  if (element != "")
   {
-    return 1;  
+    // When the first character of the string is matched with the given charater then the function will return 1 otherwise it will return 0.
+    if (element[0] === char)
+    {
+      return 1;  
+    }
+
+    else
+    {
+      return 0;
+    }
   }
 
   else
   {
-    return 0;
+    return -1;
   }
 }
 
@@ -210,19 +221,18 @@ function filterArrayElementByTheGivenCharacter (arr, char)
 
     //Accessing the each element of the main array.
     let str = arr[i];
+    console.log (str);
 
-    if (str != "")
+    // Calling the function to check if the first character of the string is same as the given character.
+    let check = myFind (str, char);
+    console.log (check);
+
+    /* When the check is 1, that means the first character of the string is matched with the given character which is 'M'. 
+       So the string will be an element of the new array, which will hold only those strings which is start with the character 'M'. */
+    if (check === 1)
     {
-      console.log(str);
-      // Calling the function to check if the first character of the string is same as the given character.
-      let check = myFind (str, char);
-
-      console.log (check);
-      if (check === 1)
-      {
-        newArr[j] = str;
-        j = (j + 1);
-      }
+      newArr[j] = str;
+      j = (j + 1);
     }
 
     i = (i + 1);
